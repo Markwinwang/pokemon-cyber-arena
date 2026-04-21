@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+:root {
+  --background: #040816;
+  --foreground: #edf5ff;
+  --panel: rgba(7, 13, 33, 0.74);
+  --panel-strong: rgba(7, 13, 33, 0.92);
+  --muted: #8ea1c4;
+  --cyan: #68f0ff;
+  --aqua: #23e8ce;
+  --blue: #5b83ff;
+  --magenta: #ff4edb;
+  --gold: #ffcf68;
+  --line: rgba(104, 240, 255, 0.16);
+  --shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+  --font-sans:
+    "Avenir Next", "SF Pro Display", "PingFang SC", "Hiragino Sans GB",
+    "Microsoft YaHei", "Segoe UI", sans-serif;
+  --font-display:
+    "Orbitron", "Eurostile", "Bank Gothic", "Avenir Next Condensed",
+    "Arial Narrow", sans-serif;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+  --font-display: var(--font-display);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background:
+    radial-gradient(circle at 15% 18%, rgba(91, 131, 255, 0.36), transparent 24%),
+    radial-gradient(circle at 82% 14%, rgba(255, 78, 219, 0.18), transparent 20%),
+    radial-gradient(circle at 60% 72%, rgba(35, 232, 206, 0.16), transparent 24%),
+    linear-gradient(180deg, #040816 0%, #070d20 42%, #030611 100%);
+  color: var(--foreground);
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+body::before {
+  background:
+    linear-gradient(rgba(91, 131, 255, 0.14) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(91, 131, 255, 0.14) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.9), transparent 92%);
+}
+
+body::after {
+  background: repeating-linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.045) 0 1px,
+    transparent 1px 6px
+  );
+  opacity: 0.12;
+  mix-blend-mode: soft-light;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+::selection {
+  background: rgba(104, 240, 255, 0.28);
+  color: white;
+}
+
+.panel {
+  background: linear-gradient(
+    180deg,
+    rgba(8, 14, 35, 0.86),
+    rgba(6, 10, 24, 0.92)
+  );
+  border: 1px solid rgba(104, 240, 255, 0.14);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(16px);
+}
+
+.chip {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.cyber-scrollbar::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.cyber-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(104, 240, 255, 0.4), rgba(91, 131, 255, 0.3));
+  border-radius: 999px;
+}
+
+.cyber-scrollbar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.03);
+}
